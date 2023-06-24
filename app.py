@@ -10,9 +10,9 @@ model = pickle.load(open('model.pkl','rb'))
 def welcome():
     data = request.form
     if request.method == 'POST':
-        joke = data['joke']    #request.form.get(variable name from html)
+        text = data['text']    #request.form.get(variable name from html)
 
-    Result = model.predict(joke)
+    Result = model.predict(text)
     if Result[0] == 0:
         return 'This is not funny'
     else:
